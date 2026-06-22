@@ -285,19 +285,12 @@
             position: relative;
             background-color: #000;
             width: 100%;
-            aspect-ratio: 16 / 9;
             overflow: hidden;
-            /* На десктопе карточка — две колонки, видео растягивается по высоте правой части.
-               Принудительно держим 16:9 через min-height */
-            min-height: 0;
         }
 
-        /* На десктопе видеоблок внутри grid-карточки должен заполнять высоту строки,
-           поэтому переопределяем aspect-ratio только для мобилок */
         .project-card .project-video-container {
-            aspect-ratio: unset;
-            height: 100%;
-            min-height: 280px;
+            aspect-ratio: 9 / 16;
+            max-height: 500px;
         }
 
         .project-video-container video {
@@ -306,7 +299,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             display: block;
             background: #000;
         }
@@ -472,12 +465,8 @@
             .project-card {
                 grid-template-columns: 1fr;
             }
-            /* На мобильном карточка одноколоночная — задаём 9:16 с ограничением высоты */
             .project-card .project-video-container {
-                aspect-ratio: 9 / 16;
-                height: auto;
-                min-height: unset;
-                max-height: 360px;
+                max-height: 380px;
             }
             .cta-grid {
                 grid-template-columns: 1fr;
@@ -492,9 +481,6 @@
             .hero h1 { font-size: 34px; }
             .hero p { font-size: 16px; }
             .project-card .project-video-container {
-                aspect-ratio: 9 / 16;
-                height: auto;
-                min-height: unset;
                 max-height: 320px;
             }
             .project-info { padding: 24px; }
