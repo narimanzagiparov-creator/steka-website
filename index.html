@@ -284,18 +284,20 @@
         .project-video-container {
             position: relative;
             background-color: #000;
-            height: 280px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 100%;
+            aspect-ratio: 16 / 9;
             overflow: hidden;
         }
 
         .project-video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             display: block;
+            background: #000;
         }
 
         .project-info {
@@ -459,9 +461,6 @@
             .project-card {
                 grid-template-columns: 1fr;
             }
-            .project-video-container {
-                height: 220px;
-            }
             .cta-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -474,7 +473,6 @@
             nav { display: none; }
             .hero h1 { font-size: 34px; }
             .hero p { font-size: 16px; }
-            .project-video-container { height: 200px; }
             .project-info { padding: 24px; }
             .form-box { padding: 30px; }
             section { padding: 70px 0; }
@@ -498,7 +496,7 @@
             </nav>
             <div class="header-contacts">
                 <div style="display:flex; flex-direction:column; align-items:flex-end; gap:2px;">
-                    <a href="https://wa.me/77023990999" class="phone" style="font-size:13px;">WhatsApp: +7 702 399 09 99</a>
+                    <a href="https://wa.me/77023990999?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D0%B0%D1%88%D1%91%D0%BB%20%D0%B2%D0%B0%D1%81%20%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B5%20steka.kz.%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82." class="phone" style="font-size:13px;">WhatsApp: +7 702 399 09 99</a>
                     <a href="tel:+77770061119" class="phone" style="font-size:13px;">Звонок: +7 777 006 11 19</a>
                 </div>
                 <a href="#contact" class="btn">Заказать расчет</a>
@@ -732,7 +730,7 @@
                 </div>
 
                 <div style="margin-top: 10px; display:flex; flex-direction:column; gap:10px;">
-                    <a href="https://wa.me/77023990999" style="color: var(--text-light); font-size:15px; display:flex; align-items:center; gap:8px;">
+                    <a href="https://wa.me/77023990999?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D0%B0%D1%88%D1%91%D0%BB%20%D0%B2%D0%B0%D1%81%20%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B5%20steka.kz.%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82." style="color: var(--text-light); font-size:15px; display:flex; align-items:center; gap:8px;">
                         <span style="font-size:20px;">💬</span> WhatsApp: <strong>+7 702 399 09 99</strong>
                     </a>
                     <a href="tel:+77770061119" style="color: var(--text-light); font-size:15px; display:flex; align-items:center; gap:8px;">
@@ -818,9 +816,9 @@
                 <div class="footer-col">
                     <h4>География работы</h4>
                     <ul>
-                        <li>Центральный офис: Караганда</li>
+                        <li>Центральный офис: Темиртау</li>
                         <li>Реализация проектов: Весь Казахстан</li>
-                        <li><a href="https://wa.me/77023990999">WhatsApp: +7 702 399 09 99</a></li>
+                        <li><a href="https://wa.me/77023990999?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D0%B0%D1%88%D1%91%D0%BB%20%D0%B2%D0%B0%D1%81%20%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B5%20steka.kz.%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82.">WhatsApp: +7 702 399 09 99</a></li>
                         <li><a href="tel:+77770061119">Звонок: +7 777 006 11 19</a></li>
                         <li>Instagram: @steka_proekt</li>
                     </ul>
