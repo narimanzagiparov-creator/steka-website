@@ -287,6 +287,17 @@
             width: 100%;
             aspect-ratio: 16 / 9;
             overflow: hidden;
+            /* На десктопе карточка — две колонки, видео растягивается по высоте правой части.
+               Принудительно держим 16:9 через min-height */
+            min-height: 0;
+        }
+
+        /* На десктопе видеоблок внутри grid-карточки должен заполнять высоту строки,
+           поэтому переопределяем aspect-ratio только для мобилок */
+        .project-card .project-video-container {
+            aspect-ratio: unset;
+            height: 100%;
+            min-height: 280px;
         }
 
         .project-video-container video {
@@ -295,7 +306,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             display: block;
             background: #000;
         }
@@ -461,6 +472,13 @@
             .project-card {
                 grid-template-columns: 1fr;
             }
+            /* На мобильном карточка одноколоночная — задаём 9:16 с ограничением высоты */
+            .project-card .project-video-container {
+                aspect-ratio: 9 / 16;
+                height: auto;
+                min-height: unset;
+                max-height: 360px;
+            }
             .cta-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -473,6 +491,12 @@
             nav { display: none; }
             .hero h1 { font-size: 34px; }
             .hero p { font-size: 16px; }
+            .project-card .project-video-container {
+                aspect-ratio: 9 / 16;
+                height: auto;
+                min-height: unset;
+                max-height: 320px;
+            }
             .project-info { padding: 24px; }
             .form-box { padding: 30px; }
             section { padding: 70px 0; }
@@ -495,10 +519,6 @@
                 </ul>
             </nav>
             <div class="header-contacts">
-                <div style="display:flex; flex-direction:column; align-items:flex-end; gap:2px;">
-                    <a href="https://wa.me/77023990999?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D0%B0%D1%88%D1%91%D0%BB%20%D0%B2%D0%B0%D1%81%20%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B5%20steka.kz.%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82." class="phone" style="font-size:13px;">WhatsApp: +7 702 399 09 99</a>
-                    <a href="tel:+77770061119" class="phone" style="font-size:13px;">Звонок: +7 777 006 11 19</a>
-                </div>
                 <a href="#contact" class="btn">Заказать расчет</a>
             </div>
         </div>
