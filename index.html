@@ -27,7 +27,7 @@
             background-color: var(--bg-main);
             color: var(--text-light);
             line-height: 1.6;
-            padding-top: 80px; /* Отступ под фиксированную шапку */
+            padding-top: 80px;
         }
 
         a {
@@ -35,7 +35,6 @@
             text-decoration: none;
         }
 
-        /* Контейнер */
         .container {
             width: 100%;
             max-width: 1200px;
@@ -43,7 +42,6 @@
             padding: 0 20px;
         }
 
-        /* Шапка сайта */
         header {
             background-color: rgba(18, 20, 22, 0.95);
             border-bottom: 1px solid var(--border-color);
@@ -115,7 +113,6 @@
             color: var(--text-light);
         }
 
-        /* Кнопки */
         .btn {
             background-color: var(--accent);
             color: #fff;
@@ -150,7 +147,6 @@
             color: var(--accent);
         }
 
-        /* Главный экран */
         .hero {
             padding: 120px 0;
             position: relative;
@@ -183,7 +179,6 @@
             flex-wrap: wrap;
         }
 
-        /* Блок цифр и преимуществ */
         .stats {
             background-color: var(--bg-card);
             border-top: 1px solid var(--border-color);
@@ -211,7 +206,6 @@
             line-height: 1.4;
         }
 
-        /* Секции общие стили */
         section {
             padding: 100px 0;
         }
@@ -234,7 +228,6 @@
             font-size: 16px;
         }
 
-        /* Услуги */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -273,7 +266,6 @@
             line-height: 1.5;
         }
 
-        /* Портфолио (Объекты) */
         .portfolio-grid {
             display: flex;
             flex-direction: column;
@@ -362,7 +354,6 @@
             color: var(--text-light);
         }
 
-        /* Форма обратной связи */
         .cta-section {
             background: linear-gradient(135deg, #1a1d20 0%, #121416 100%);
             border-top: 1px solid var(--border-color);
@@ -415,7 +406,6 @@
             resize: vertical;
         }
 
-        /* Подвал */
         footer {
             background-color: #0b0c0d;
             padding: 80px 0 40px 0;
@@ -464,7 +454,6 @@
             gap: 20px;
         }
 
-        /* Адаптивность для мобильных устройств */
         @media (max-width: 992px) {
             .project-card {
                 grid-template-columns: 1fr;
@@ -478,7 +467,7 @@
         @media (max-width: 768px) {
             body { padding-top: 70px; }
             .header-inner { height: 70px; }
-            nav { display: none; } /* Скрываем навигацию на мобилках для простоты */
+            nav { display: none; }
             .hero h1 { font-size: 34px; }
             .hero p { font-size: 16px; }
             .project-info { padding: 30px; }
@@ -578,130 +567,149 @@
             <h2 class="section-title">Выполненные <span>объекты</span></h2>
             <p class="section-desc">Доказательство нашей квалификации и надежности — реальные, успешно сданные проекты с прохождением жесткого технадзора.</p>
 
-<div class="portfolio-grid">
+            <div class="portfolio-grid">
 
-    <div class="project-card">
-        <div class="project-video-container">
-            <!-- Добавили #t=0.1 в конец пути -->
-            <video controls preload="auto">
-                <source src="tec2-qarmet.mp4#t=0.1" type="video/mp4">
-                Ваш браузер не поддерживает видео.
-            </video>
-        </div>
-        <div class="project-info">
-            <div class="project-tag">Промышленный ремонт</div>
-            <h3>Ремонт осветлителя химического цеха ТЭЦ-2</h3>
-            <p>Проведение масштабных ремонтных и восстановительных работ на стратегически важном энергетическом объекте для обеспечения стабильного цикла фильтрации.</p>
-            <div class="project-meta">
-                <div>
-                    <span class="meta-label">Заказчик / Объект</span>
-                    <span class="meta-value">АО «Qarmet», ТЭЦ-2</span>
+                <div class="project-card">
+                    <div class="project-video-container">
+                        <!--
+                            poster= — первый кадр видео, Cloudinary генерирует его автоматически:
+                            меняем /video/upload/ на /video/upload/so_0/ и .mp4 на .jpg
+                        -->
+                        <video
+                            controls
+                            preload="none"
+                            poster="https://res.cloudinary.com/ddu7lxpzj/video/upload/so_0/v1782124781/tec2-qarmet.mp4_q8yhqu.jpg">
+                            <source src="https://res.cloudinary.com/ddu7lxpzj/video/upload/v1782124781/tec2-qarmet.mp4_q8yhqu.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tag">Промышленный ремонт</div>
+                        <h3>Ремонт осветлителя химического цеха ТЭЦ-2</h3>
+                        <p>Проведение масштабных ремонтных и восстановительных работ на стратегически важном энергетическом объекте для обеспечения стабильного цикла фильтрации.</p>
+                        <div class="project-meta">
+                            <div>
+                                <span class="meta-label">Заказчик / Объект</span>
+                                <span class="meta-value">АО «Qarmet», ТЭЦ-2</span>
+                            </div>
+                            <div>
+                                <span class="meta-label">Статус</span>
+                                <span class="meta-value" style="color: #00ff6a;">Сдано в срок</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <span class="meta-label">Статус</span>
-                    <span class="meta-value" style="color: #00ff6a;">Сдано в срок</span>
+
+                <div class="project-card">
+                    <div class="project-video-container">
+                        <video
+                            controls
+                            preload="none"
+                            poster="https://res.cloudinary.com/ddu7lxpzj/video/upload/so_0/v1782124784/balkhash-airport.mp4_fmjhy9.jpg">
+                            <source src="https://res.cloudinary.com/ddu7lxpzj/video/upload/v1782124784/balkhash-airport.mp4_fmjhy9.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tag">Капитальное строительство</div>
+                        <h3>Здание службы специального транспорта</h3>
+                        <p>Строительство современного технологического объекта на территории аэропорта. Реализованы повышенные требования к прочности материалов и системам безопасности здания.</p>
+                        <div class="project-meta">
+                            <div>
+                                <span class="meta-label">Локация</span>
+                                <span class="meta-value">Аэропорт г. Балхаш</span>
+                            </div>
+                            <div>
+                                <span class="meta-label">Тип работ</span>
+                                <span class="meta-value">Генподряд / Строительство</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="project-card">
+                    <div class="project-video-container">
+                        <video
+                            controls
+                            preload="none"
+                            poster="https://res.cloudinary.com/ddu7lxpzj/video/upload/so_0/v1782124782/muk-fasad.mp4_q3oje7.jpg">
+                            <source src="https://res.cloudinary.com/ddu7lxpzj/video/upload/v1782124782/muk-fasad.mp4_q3oje7.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tag">Фасадные работы</div>
+                        <h3>Капитальный ремонт фасада НАО МУК</h3>
+                        <p>Масштабные наружные работы по реставрации, подготовке и финишной окраске высотного фасада главного корпуса Медицинского Университета.</p>
+                        <div class="project-meta">
+                            <div>
+                                <span class="meta-label">Локация</span>
+                                <span class="meta-value">г. Караганда</span>
+                            </div>
+                            <div>
+                                <span class="meta-label">Объект</span>
+                                <span class="meta-value">НАО МУК</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-video-container">
+                        <video
+                            controls
+                            preload="none"
+                            poster="https://res.cloudinary.com/ddu7lxpzj/video/upload/so_0/v1782124785/pozharnoe-depo.mp4_vwc8de.jpg">
+                            <source src="https://res.cloudinary.com/ddu7lxpzj/video/upload/v1782124785/pozharnoe-depo.mp4_vwc8de.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tag">Реконструкция</div>
+                        <h3>Капитальный ремонт Пожарного Депо</h3>
+                        <p>Полный комплекс общестроительных, демонтажных и отделочных работ в административно-техническом здании спасательной службы.</p>
+                        <div class="project-meta">
+                            <div>
+                                <span class="meta-label">Вид проекта</span>
+                                <span class="meta-value">Комплекс работ «под ключ»</span>
+                            </div>
+                            <div>
+                                <span class="meta-label">Специфика</span>
+                                <span class="meta-value">Гос. сектор</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-video-container">
+                        <video
+                            controls
+                            preload="none"
+                            poster="https://res.cloudinary.com/ddu7lxpzj/video/upload/so_0/v1782124781/prom-alpinizm.mp4_tefa2h.jpg">
+                            <source src="https://res.cloudinary.com/ddu7lxpzj/video/upload/v1782124781/prom-alpinizm.mp4_tefa2h.mp4" type="video/mp4">
+                            Ваш браузер не поддерживает видео.
+                        </video>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-tag">Промальп</div>
+                        <h3>Высотные работы методами промышленного альпинизма</h3>
+                        <p>Оперативная замена старых оконных блоков на высоте, герметизация межпанельных стыков и финишное окрашивание элементов конструкции без привлечения громоздкой техники.</p>
+                        <div class="project-meta">
+                            <div>
+                                <span class="meta-label">Технология</span>
+                                <span class="meta-value">Канатный доступ</span>
+                            </div>
+                            <div>
+                                <span class="meta-label">Безопасность</span>
+                                <span class="meta-value">Сертифицированные допуски</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-    </div>
-
-    <div class="project-card">
-        <div class="project-video-container">
-            <video controls preload="auto">
-                <source src="balkhash-airport.mp4#t=0.1" type="video/mp4">
-                Ваш браузер не поддерживает видео.
-            </video>
-        </div>
-        <div class="project-info">
-            <div class="project-tag">Капитальное строительство</div>
-            <h3>Здание службы специального транспорта</h3>
-            <p>Строительство современного технологического объекта на территории аэропорта. Реализованы повышенные требования к прочности материалов и системам безопасности здания.</p>
-            <div class="project-meta">
-                <div>
-                    <span class="meta-label">Локация</span>
-                    <span class="meta-value">Аэропорт г. Балхаш</span>
-                </div>
-                <div>
-                    <span class="meta-label">Тип работ</span>
-                    <span class="meta-value">Генподряд / Строительство</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="project-card">
-        <div class="project-video-container">
-            <video controls preload="auto">
-                <source src="muk-fasad.mp4#t=0.1" type="video/mp4">
-                Ваш браузер не поддерживает видео.
-            </video>
-        </div>
-        <div class="project-info">
-            <div class="project-tag">Фасадные работы</div>
-            <h3>Капитальный ремонт фасада НАО МУК</h3>
-            <p>Масштабные наружные работы по реставрации, подготовке и финишной окраске высотного фасада главного корпуса Медицинского Университета.</p>
-            <div class="project-meta">
-                <div>
-                    <span class="meta-label">Локация</span>
-                    <span class="meta-value">г. Караганда</span>
-                </div>
-                <div>
-                    <span class="meta-label">Объект</span>
-                    <span class="meta-value">НАО МУК</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="project-card">
-        <div class="project-video-container">
-            <video controls preload="auto">
-                <source src="pozharnoe-depo.mp4#t=0.1" type="video/mp4">
-                Ваш браузер не поддерживает видео.
-            </video>
-        </div>
-        <div class="project-info">
-            <div class="project-tag">Реконструкция</div>
-            <h3>Капитальный ремонт Пожарного Депо</h3>
-            <p>Полный комплекс общестроительных, демонтажных и отделочных работ в административно-техническом здании спасательной службы.</p>
-            <div class="project-meta">
-                <div>
-                    <span class="meta-label">Вид проекта</span>
-                    <span class="meta-value">Комплекс работ «под ключ»</span>
-                </div>
-                <div>
-                    <span class="meta-label">Специфика</span>
-                    <span class="meta-value">Гос. сектор</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="project-card">
-        <div class="project-video-container">
-            <video controls preload="auto">
-                <source src="prom-alpinizm.mp4#t=0.1" type="video/mp4">
-                Ваш браузер не поддерживает видео.
-            </video>
-        </div>
-        <div class="project-info">
-            <div class="project-tag">Промальп</div>
-            <h3>Высотные работы методами промышленного альпинизма</h3>
-            <p>Оперативная замена старых оконных блоков на высоте, герметизация межпанельных стыков и финишное окрашивание элементов конструкции без привлечения громоздкой техники.</p>
-            <div class="project-meta">
-                <div>
-                    <span class="meta-label">Технология</span>
-                    <span class="meta-value">Канатный доступ</span>
-                </div>
-                <div>
-                    <span class="meta-label">Безопасность</span>
-                    <span class="meta-value">Сертифицированные допуски</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
     </section>
 
     <section id="contact" class="cta-section">
