@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СТЭКА | Строительно-монтажная компания и генподряд</title>
+    <style>
+        :root {
+            --bg-main: #121416;
+            --bg-card: #1a1d20;
+            --accent: #ff6a00;
+            --accent-hover: #e05d00;
+            --text-light: #f5f6f7;
+            --text-muted: #98a2b3;
+            --border-color: #2d3135;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-light);
+            line-height: 1.6;
+            padding-top: 80px; /* Отступ под фиксированную шапку */
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Контейнер */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка сайта */
+        header {
+            background-color: rgba(18, 20, 22, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--text-light);
+            text-transform: uppercase;
+        }
+
+        .logo-title span {
+            color: var(--accent);
+        }
+
+        .logo-sub {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-top: -4px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .header-contacts {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .phone {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--text-light);
+        }
+
+        /* Кнопки */
+        .btn {
+            background-color: var(--accent);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            text-align: center;
+            display: inline-block;
+            font-size: 15px;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--border-color);
+            color: var(--text-light);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            background-color: transparent;
+            color: var(--accent);
+        }
+
+        /* Главный экран */
+        .hero {
+            padding: 120px 0;
+            position: relative;
+            background: linear-gradient(180deg, rgba(18,20,22,0.7) 0%, rgba(18,20,22,1) 100%), 
+                        url('WhatsApp Image 2026-06-15 at 16.58.33.jpeg') center/cover no-repeat;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 700px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Блок цифр и преимуществ */
+        .stats {
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 50px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 36px;
+            color: var(--accent);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* Секции общие стили */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title span {
+            color: var(--accent);
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            margin-bottom: 60px;
+            max-width: 650px;
+            font-size: 16px;
+        }
+
+        /* Услуги */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 40px 30px;
+            border-radius: 6px;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(255, 106, 0, 0.05);
+        }
+
+        .service-icon {
+            font-size: 36px;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 14px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Портфолио (Объекты) */
+        .portfolio-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .project-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+        }
+
+        .project-video-container {
+            position: relative;
+            background-color: #000;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-info {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .project-tag {
+            align-self: flex-start;
+            background-color: rgba(255, 106, 0, 0.1);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .project-info h3 {
+            font-size: 26px;
+            margin-bottom: 16px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .project-info p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 24px;
+            font-size: 14px;
+        }
+
+        .meta-label {
+            color: var(--text-muted);
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .meta-value {
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        /* Форма обратной связи */
+        .cta-section {
+            background: linear-gradient(135deg, #1a1d20 0%, #121416 100%);
+            border-top: 1px solid var(--border-color);
+        }
+
+        .cta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .form-box {
+            background-color: var(--bg-main);
+            padding: 45px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 16px;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: #0b0c0d;
+            padding: 80px 0 40px 0;
+            border-top: 1px solid var(--border-color);
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 24px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .footer-col a {
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 992px) {
+            .project-card {
+                grid-template-columns: 1fr;
+            }
+            .cta-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body { padding-top: 70px; }
+            .header-inner { height: 70px; }
+            nav { display: none; } /* Скрываем навигацию на мобилках для простоты */
+            .hero h1 { font-size: 34px; }
+            .hero p { font-size: 16px; }
+            .project-info { padding: 30px; }
+            .form-box { padding: 30px; }
+            section { padding: 70px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <div class="logo-title">СТЭКА<span>.</span></div>
+                <div class="logo-sub">Строительная компания</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#services">Направления</a></li>
+                    <li><a href="#portfolio">Наши объекты</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="header-contacts">
+                <span class="phone">Караганда / РК</span>
+                <a href="#contact" class="btn">Заказать расчет</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Реализуем инженерные и строительные проекты любой сложности</h1>
+                <p>ТОО «СТЭКА» — генеральный подряд, комплексный капитальный ремонт зданий, обслуживание промышленных предприятий и высотно-монтажные работы методами промышленного альпинизма.</p>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn">Рассчитать стоимость объекта</a>
+                    <a href="#portfolio" class="btn btn-outline">Смотреть объекты</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="stats">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <h3>Лицензия</h3>
+                <p>Полный пакет разрешений на СМР</p>
+            </div>
+            <div class="stat-item">
+                <h3>100%</h3>
+                <p>Соблюдение СНиП и сроков договора</p>
+            </div>
+            <div class="stat-item">
+                <h3>B2B / Гос</h3>
+                <p>Опыт работы с крупными предприятиями</p>
+            </div>
+            <div class="stat-item">
+                <h3>Собственные</h3>
+                <p>Профессиональные бригады и альпинисты</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Наши <span>направления</span></h2>
+            <p class="section-desc">Оказываем комплексные услуги по строительству, модернизации и высотному сервису коммерческих, индустриальных и государственных объектов.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Промышленный инжиниринг</h3>
+                    <p>Ремонт, модернизация и восстановление гидротехнических, производственных и энергетических цехов ТЭЦ.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Капитальный ремонт</h3>
+                    <p>Комплексная реконструкция административных зданий, учебных заведений, депо и социальных объектов под ключ.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧗‍♂️</div>
+                    <h3>Промышленный альпинизм</h3>
+                    <p>Профессиональные высотные работы: замена остекления, герметизация швов, окраска и ремонт сложных фасадов.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>Строительство инфраструктуры</h3>
+                    <p>Возведение зданий специального назначения, ангаров, логистических комплексов и авиационных узлов обслуживания.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title">Выполненные <span>объекты</span></h2>
+            <p class="section-desc">Доказательство нашей квалификации и надежности — реальные, успешно сданные проекты с прохождением жесткого технадзора.</p>
+
+<div class="portfolio-grid">
+
+    <div class="project-card">
+        <div class="project-video-container">
+            <!-- Добавили #t=0.1 в конец пути -->
+            <video controls preload="auto">
+                <source src="tec2-qarmet.mp4#t=0.1" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </div>
+        <div class="project-info">
+            <div class="project-tag">Промышленный ремонт</div>
+            <h3>Ремонт осветлителя химического цеха ТЭЦ-2</h3>
+            <p>Проведение масштабных ремонтных и восстановительных работ на стратегически важном энергетическом объекте для обеспечения стабильного цикла фильтрации.</p>
+            <div class="project-meta">
+                <div>
+                    <span class="meta-label">Заказчик / Объект</span>
+                    <span class="meta-value">АО «Qarmet», ТЭЦ-2</span>
+                </div>
+                <div>
+                    <span class="meta-label">Статус</span>
+                    <span class="meta-value" style="color: #00ff6a;">Сдано в срок</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="project-video-container">
+            <video controls preload="auto">
+                <source src="balkhash-airport.mp4#t=0.1" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </div>
+        <div class="project-info">
+            <div class="project-tag">Капитальное строительство</div>
+            <h3>Здание службы специального транспорта</h3>
+            <p>Строительство современного технологического объекта на территории аэропорта. Реализованы повышенные требования к прочности материалов и системам безопасности здания.</p>
+            <div class="project-meta">
+                <div>
+                    <span class="meta-label">Локация</span>
+                    <span class="meta-value">Аэропорт г. Балхаш</span>
+                </div>
+                <div>
+                    <span class="meta-label">Тип работ</span>
+                    <span class="meta-value">Генподряд / Строительство</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="project-video-container">
+            <video controls preload="auto">
+                <source src="muk-fasad.mp4#t=0.1" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </div>
+        <div class="project-info">
+            <div class="project-tag">Фасадные работы</div>
+            <h3>Капитальный ремонт фасада НАО МУК</h3>
+            <p>Масштабные наружные работы по реставрации, подготовке и финишной окраске высотного фасада главного корпуса Медицинского Университета.</p>
+            <div class="project-meta">
+                <div>
+                    <span class="meta-label">Локация</span>
+                    <span class="meta-value">г. Караганда</span>
+                </div>
+                <div>
+                    <span class="meta-label">Объект</span>
+                    <span class="meta-value">НАО МУК</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="project-video-container">
+            <video controls preload="auto">
+                <source src="pozharnoe-depo.mp4#t=0.1" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </div>
+        <div class="project-info">
+            <div class="project-tag">Реконструкция</div>
+            <h3>Капитальный ремонт Пожарного Депо</h3>
+            <p>Полный комплекс общестроительных, демонтажных и отделочных работ в административно-техническом здании спасательной службы.</p>
+            <div class="project-meta">
+                <div>
+                    <span class="meta-label">Вид проекта</span>
+                    <span class="meta-value">Комплекс работ «под ключ»</span>
+                </div>
+                <div>
+                    <span class="meta-label">Специфика</span>
+                    <span class="meta-value">Гос. сектор</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="project-video-container">
+            <video controls preload="auto">
+                <source src="prom-alpinizm.mp4#t=0.1" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </div>
+        <div class="project-info">
+            <div class="project-tag">Промальп</div>
+            <h3>Высотные работы методами промышленного альпинизма</h3>
+            <p>Оперативная замена старых оконных блоков на высоте, герметизация межпанельных стыков и финишное окрашивание элементов конструкции без привлечения громоздкой техники.</p>
+            <div class="project-meta">
+                <div>
+                    <span class="meta-label">Технология</span>
+                    <span class="meta-value">Канатный доступ</span>
+                </div>
+                <div>
+                    <span class="meta-label">Безопасность</span>
+                    <span class="meta-value">Сертифицированные допуски</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+    </section>
+
+    <section id="contact" class="cta-section">
+        <div class="container cta-grid">
+            <div>
+                <h2 class="section-title">Обсудим ваш <span>проект</span>?</h2>
+                <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 16px;">Оставьте свои контакты и кратко опишите задачу. Инженер ТОО «СТЭКА» свяжется с вами для уточнения деталей, проведения замеров на объекте и подготовки прозрачного коммерческого предложения.</p>
+                
+                <div style="margin-bottom: 20px;">
+                    <strong style="color: #fff; display: block; margin-bottom: 8px; font-size: 15px;">Следите за нашими буднями на объектах:</strong>
+                    <a href="https://www.instagram.com/steka_proekt?igsh=Y2QwN2RyaDQ1OXU5" target="_blank" style="color: var(--accent); font-weight: 700; text-decoration: underline; font-size: 16px;">@steka_proekt в Instagram</a>
+                </div>
+            </div>
+            
+            <div class="form-box">
+                <form onsubmit="alert('Спасибо за заявку! Наш специалист свяжется с вами в ближайшее время.'); return false;">
+                    <div class="form-group">
+                        <label for="name">Ваше имя / Компания</label>
+                        <input type="text" id="name" class="form-control" placeholder="ТОО / Иван Иванов" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Номер телефона</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="+7 (707) 123-45-67" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Краткое описание задачи</label>
+                        <textarea id="message" rows="4" class="form-control" placeholder="Например: Капитальный ремонт кровли/фасада, площадь объекта..."></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; padding: 16px;">Отправить запрос на расчет</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px;">
+                        <div class="logo-title">СТЭКА<span>.</span></div>
+                    </div>
+                    <p style="line-height: 1.6;">Профессиональный и надежный подход к промышленному, гражданскому строительству и высотному сервису на всей территории Республики Казахстан.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="#services">Наши направления</a></li>
+                        <li><a href="#portfolio">Выполненные объекты</a></li>
+                        <li><a href="#contact">Контакты и заявка</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>География работы</h4>
+                    <ul>
+                        <li>Центральный офис: Караганда</li>
+                        <li>Реализация проектов: Весь Казахстан</li>
+                        <li>Instagram: @steka_proekt</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 ТОО «СТЭКА». Все права защищены.</div>
+                <div>Генеральный подряд, СМР и промышленный альпинизм.</div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
