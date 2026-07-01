@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>СТЭКА | Строительно-монтажная компания и генподряд</title>
+    <title>ПК «Стека» | Строительно-монтажная компания и генподряд</title>
     <style>
         :root {
             --bg-main: #121416;
@@ -57,12 +57,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80px;
+            min-height: 80px;
+            padding: 10px 0;
         }
 
         .logo {
             display: flex;
             flex-direction: column;
+            margin-right: 20px;
         }
 
         .logo-title {
@@ -71,6 +73,7 @@
             letter-spacing: 2px;
             color: var(--text-light);
             text-transform: uppercase;
+            white-space: nowrap;
         }
 
         .logo-title span {
@@ -83,16 +86,19 @@
             letter-spacing: 1px;
             color: var(--text-muted);
             margin-top: -4px;
+            white-space: nowrap;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
         nav a {
-            font-size: 15px;
+            font-size: 13px;
             font-weight: 500;
             transition: color 0.3s;
         }
@@ -101,56 +107,10 @@
             color: var(--accent);
         }
 
-        .header-contacts {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .phone {
-            font-weight: 700;
-            font-size: 15px;
-            color: var(--text-light);
-        }
-
-        .btn {
-            background-color: var(--accent);
-            color: #fff;
-            padding: 12px 28px;
-            border-radius: 4px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s;
-            text-align: center;
-            display: inline-block;
-            font-size: 15px;
-        }
-
-        .btn:hover {
-            background-color: var(--accent-hover);
-        }
-
-        .btn:active {
-            transform: scale(0.98);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--border-color);
-            color: var(--text-light);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--accent);
-            background-color: transparent;
-            color: var(--accent);
-        }
-
         .hero {
             padding: 120px 0;
             position: relative;
-            background: linear-gradient(180deg, rgba(18,20,22,0.7) 0%, rgba(18,20,22,1) 100%), 
+            background: linear-gradient(180deg, rgba(18,20,22,0.85) 0%, rgba(18,20,22,1) 100%), 
                         url('WhatsApp Image 2026-06-15 at 16.58.33.jpeg') center/cover no-repeat;
         }
 
@@ -159,7 +119,7 @@
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 52px;
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 24px;
@@ -171,12 +131,6 @@
             color: var(--text-muted);
             margin-bottom: 40px;
             max-width: 700px;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
         }
 
         .stats {
@@ -194,7 +148,7 @@
         }
 
         .stat-item h3 {
-            font-size: 36px;
+            font-size: 28px;
             color: var(--accent);
             font-weight: 800;
             margin-bottom: 8px;
@@ -366,51 +320,15 @@
             border-top: 1px solid var(--border-color);
         }
 
-        .cta-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .form-box {
+        .contact-box {
             background-color: var(--bg-main);
             padding: 45px;
             border-radius: 8px;
             border: 1px solid var(--border-color);
             box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 14px;
-            margin-bottom: 8px;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 16px;
-            border-radius: 4px;
-            color: #fff;
-            font-size: 15px;
-            transition: border-color 0.3s;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        textarea.form-control {
-            resize: vertical;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         footer {
@@ -460,6 +378,28 @@
             flex-wrap: wrap;
             gap: 20px;
         }
+        
+        .license-box {
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .license-placeholder {
+            width: 100%;
+            height: 350px;
+            background: #2d3135;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            border-radius: 4px;
+            margin-top: 20px;
+            border: 2px dashed #4a5056;
+        }
 
         @media (max-width: 992px) {
             .project-card {
@@ -468,23 +408,19 @@
             .project-card .project-video-container {
                 max-height: 380px;
             }
-            .cta-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
         }
 
         @media (max-width: 768px) {
             body { padding-top: 70px; }
-            .header-inner { height: 70px; }
-            nav { display: none; }
+            .header-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+            nav { width: 100%; overflow-x: auto; padding-bottom: 10px; }
+            nav ul { flex-wrap: nowrap; justify-content: flex-start; }
             .hero h1 { font-size: 34px; }
             .hero p { font-size: 16px; }
             .project-card .project-video-container {
                 max-height: 320px;
             }
             .project-info { padding: 24px; }
-            .form-box { padding: 30px; }
             section { padding: 70px 0; }
         }
     </style>
@@ -494,31 +430,27 @@
     <header>
         <div class="container header-inner">
             <div class="logo">
-                <div class="logo-title">СТЭКА<span>.</span></div>
+                <div class="logo-title">ПК «Стека»<span>.</span></div>
                 <div class="logo-sub">Строительная компания</div>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#services">Направления</a></li>
-                    <li><a href="#portfolio">Наши объекты</a></li>
-                    <li><a href="#contact">Контакты</a></li>
+                    <li><a href="#portfolio">Проектирование</a></li>
+                    <li><a href="#services">СМР любой сложности</a></li>
+                    <li><a href="#services">Гражданское строительство</a></li>
+                    <li><a href="#services">Промышленное строительство</a></li>
+                    <li><a href="#portfolio">Капитальные ремонты</a></li>
+                    <li><a href="#portfolio">Промышленный альпинизм</a></li>
                 </ul>
             </nav>
-            <div class="header-contacts">
-                <a href="#contact" class="btn">Заказать расчет</a>
-            </div>
         </div>
     </header>
 
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Реализуем инженерные и строительные проекты любой сложности</h1>
-                <p>ТОО «СТЭКА» — генеральный подряд, комплексный капитальный ремонт зданий, обслуживание промышленных предприятий и высотно-монтажные работы методами промышленного альпинизма.</p>
-                <div class="hero-btns">
-                    <a href="#contact" class="btn">Рассчитать стоимость объекта</a>
-                    <a href="#portfolio" class="btn btn-outline">Смотреть объекты</a>
-                </div>
+                <h1>От проекта до его реализации</h1>
+                <p>ПК «Стека» работает по проектно-сметной документации (B2B сегмент), оказывая комплексные услуги по генподряду, проектированию, капитальному ремонту и высотно-монтажным работам.</p>
             </div>
         </div>
     </section>
@@ -526,20 +458,16 @@
     <div class="stats">
         <div class="container stats-grid">
             <div class="stat-item">
-                <h3>Лицензия</h3>
-                <p>Полный пакет разрешений на СМР</p>
+                <h3>Лицензии</h3>
+                <p>Полный пакет разрешений на проектную деятельность и СМР</p>
             </div>
             <div class="stat-item">
                 <h3>100%</h3>
-                <p>Соблюдение СНиП и сроков договора</p>
+                <p>Соблюдение СНиПов и сроков договора</p>
             </div>
             <div class="stat-item">
                 <h3>B2B / Гос</h3>
-                <p>Опыт работы с крупными предприятиями</p>
-            </div>
-            <div class="stat-item">
-                <h3>Собственные</h3>
-                <p>Профессиональные бригады и альпинисты</p>
+                <p>Опыт работы с крупными предприятиями по ПСД</p>
             </div>
         </div>
     </div>
@@ -547,28 +475,54 @@
     <section id="services">
         <div class="container">
             <h2 class="section-title">Наши <span>направления</span></h2>
-            <p class="section-desc">Оказываем комплексные услуги по строительству, модернизации и высотному сервису коммерческих, индустриальных и государственных объектов.</p>
+            <p class="section-desc">Оказываем комплексные услуги по проектированию, строительству, модернизации и высотному сервису на базе проектно-сметной документации.</p>
             
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">🏗️</div>
-                    <h3>Промышленный инжиниринг</h3>
-                    <p>Ремонт, модернизация и восстановление гидротехнических, производственных и энергетических цехов ТЭЦ.</p>
+                    <h3>Промышленное строительство</h3>
+                    <p>Модернизация и восстановление производственных и промышленных объектов, полное сопровождение проектного цикла.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🏢</div>
-                    <h3>Капитальный ремонт</h3>
-                    <p>Комплексная реконструкция административных зданий, учебных заведений, депо и социальных объектов под ключ.</p>
+                    <h3>Гражданское строительство</h3>
+                    <p>Комплексное строительство, реконструкция и капитальный ремонт зданий и общественных сооружений.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🧗‍♂️</div>
                     <h3>Промышленный альпинизм</h3>
-                    <p>Профессиональные высотные работы: замена остекления, герметизация швов, окраска и ремонт сложных фасадов.</p>
+                    <p>Профессиональные высотные работы: замена остекления, ремонт сложных фасадов, монтажные операции на высоте.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🛠️</div>
                     <h3>Строительство инфраструктуры</h3>
-                    <p>Возведение зданий специального назначения, ангаров, логистических комплексов и авиационных узлов обслуживания.</p>
+                    <p>Монтаж технологических трубопроводов, трубопроводов водоснабжения и электросетей, возведение логистических комплексов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="documents" style="background-color: var(--bg-card); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+        <div class="container">
+            <h2 class="section-title">Разрешительная <span>документация</span></h2>
+            <p class="section-desc">Надежность и качество подтверждены государственными лицензиями.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                <div class="license-box">
+                    <div style="font-size: 40px; margin-bottom: 15px;">📐</div>
+                    <h3>Лицензия I категории</h3>
+                    <p style="color: var(--text-muted); font-size: 14px;">На занятие проектной деятельностью</p>
+                    <div class="license-placeholder">
+                        <span>[Загрузите скан Лицензии на проектирование]</span>
+                    </div>
+                </div>
+                <div class="license-box">
+                    <div style="font-size: 40px; margin-bottom: 15px;">🏗️</div>
+                    <h3>Лицензия на СМР</h3>
+                    <p style="color: var(--text-muted); font-size: 14px;">На строительно-монтажные работы</p>
+                    <div class="license-placeholder">
+                        <span>[Загрузите скан Лицензии на СМР]</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -580,29 +534,21 @@
             <p class="section-desc">Доказательство нашей квалификации и надежности — реальные, успешно сданные проекты с прохождением жесткого технадзора.</p>
 
             <div class="portfolio-grid">
-
                 <div class="project-card">
                     <div class="project-video-container">
-                        <!--
-                            poster= — первый кадр видео, Cloudinary генерирует его автоматически:
-                            меняем /video/upload/ на /video/upload/so_1/ и .mp4 на .jpg
-                        -->
-                        <video
-                            controls
-                            preload="none"
-                            poster="https://res.cloudinary.com/ddu7lxpzj/video/upload/so_1/v1782124781/tec2-qarmet.mp4_q8yhqu.jpg">
+                        <video controls preload="none" poster="https://res.cloudinary.com/ddu7lxpzj/video/upload/so_1/v1782124781/tec2-qarmet.mp4_q8yhqu.jpg">
                             <source src="https://res.cloudinary.com/ddu7lxpzj/video/upload/v1782124781/tec2-qarmet.mp4_q8yhqu.mp4" type="video/mp4">
                             Ваш браузер не поддерживает видео.
                         </video>
                     </div>
                     <div class="project-info">
                         <div class="project-tag">Промышленный ремонт</div>
-                        <h3>Ремонт осветлителя химического цеха ТЭЦ-2</h3>
-                        <p>Проведение масштабных ремонтных и восстановительных работ на стратегически важном энергетическом объекте для обеспечения стабильного цикла фильтрации.</p>
+                        <h3>Ремонт осветлителя химического цеха</h3>
+                        <p>Проведение масштабных ремонтных и восстановительных работ на стратегически важном производственном объекте для обеспечения стабильного цикла фильтрации.</p>
                         <div class="project-meta">
                             <div>
-                                <span class="meta-label">Заказчик / Объект</span>
-                                <span class="meta-value">АО «Qarmet», ТЭЦ-2</span>
+                                <span class="meta-label">Заказчик</span>
+                                <span class="meta-value">АО «Qarmet»</span>
                             </div>
                             <div>
                                 <span class="meta-label">Статус</span>
@@ -614,10 +560,7 @@
 
                 <div class="project-card">
                     <div class="project-video-container">
-                        <video
-                            controls
-                            preload="none"
-                            poster="https://res.cloudinary.com/ddu7lxpzj/video/upload/so_1/v1782124784/balkhash-airport.mp4_fmjhy9.jpg">
+                        <video controls preload="none" poster="https://res.cloudinary.com/ddu7lxpzj/video/upload/so_1/v1782124784/balkhash-airport.mp4_fmjhy9.jpg">
                             <source src="https://res.cloudinary.com/ddu7lxpzj/video/upload/v1782124784/balkhash-airport.mp4_fmjhy9.mp4" type="video/mp4">
                             Ваш браузер не поддерживает видео.
                         </video>
@@ -641,10 +584,7 @@
 
                 <div class="project-card">
                     <div class="project-video-container">
-                        <video
-                            controls
-                            preload="none"
-                            poster="https://res.cloudinary.com/ddu7lxpzj/video/upload/so_1/v1782124782/muk-fasad.mp4_q3oje7.jpg">
+                        <video controls preload="none" poster="https://res.cloudinary.com/ddu7lxpzj/video/upload/so_1/v1782124782/muk-fasad.mp4_q3oje7.jpg">
                             <source src="https://res.cloudinary.com/ddu7lxpzj/video/upload/v1782124782/muk-fasad.mp4_q3oje7.mp4" type="video/mp4">
                             Ваш браузер не поддерживает видео.
                         </video>
@@ -652,7 +592,7 @@
                     <div class="project-info">
                         <div class="project-tag">Фасадные работы</div>
                         <h3>Капитальный ремонт фасада НАО МУК</h3>
-                        <p>Масштабные наружные работы по реставрации, подготовке и финишной окраске высотного фасада главного корпуса Медицинского Университета.</p>
+                        <p>Наружные работы по облицовке фасада главного корпуса керамогранитной плитой, а также комплексная реконструкция крыльца входной группы.</p>
                         <div class="project-meta">
                             <div>
                                 <span class="meta-label">Локация</span>
@@ -668,10 +608,7 @@
 
                 <div class="project-card">
                     <div class="project-video-container">
-                        <video
-                            controls
-                            preload="none"
-                            poster="https://res.cloudinary.com/ddu7lxpzj/video/upload/so_1/v1782124785/pozharnoe-depo.mp4_vwc8de.jpg">
+                        <video controls preload="none" poster="https://res.cloudinary.com/ddu7lxpzj/video/upload/so_1/v1782124785/pozharnoe-depo.mp4_vwc8de.jpg">
                             <source src="https://res.cloudinary.com/ddu7lxpzj/video/upload/v1782124785/pozharnoe-depo.mp4_vwc8de.mp4" type="video/mp4">
                             Ваш браузер не поддерживает видео.
                         </video>
@@ -683,7 +620,7 @@
                         <div class="project-meta">
                             <div>
                                 <span class="meta-label">Вид проекта</span>
-                                <span class="meta-value">Комплекс работ «под ключ»</span>
+                                <span class="meta-value">Комплекс работ по ПСД</span>
                             </div>
                             <div>
                                 <span class="meta-label">Специфика</span>
@@ -695,18 +632,15 @@
 
                 <div class="project-card">
                     <div class="project-video-container">
-                        <video
-                            controls
-                            preload="none"
-                            poster="https://res.cloudinary.com/ddu7lxpzj/video/upload/so_1/v1782124781/prom-alpinizm.mp4_tefa2h.jpg">
+                        <video controls preload="none" poster="https://res.cloudinary.com/ddu7lxpzj/video/upload/so_1/v1782124781/prom-alpinizm.mp4_tefa2h.jpg">
                             <source src="https://res.cloudinary.com/ddu7lxpzj/video/upload/v1782124781/prom-alpinizm.mp4_tefa2h.mp4" type="video/mp4">
                             Ваш браузер не поддерживает видео.
                         </video>
                     </div>
                     <div class="project-info">
                         <div class="project-tag">Промальп</div>
-                        <h3>Высотные работы методами промышленного альпинизма</h3>
-                        <p>Оперативная замена старых оконных блоков на высоте, герметизация межпанельных стыков и финишное окрашивание элементов конструкции без привлечения громоздкой техники.</p>
+                        <h3>Здание инженерного корпуса</h3>
+                        <p>Локальный ремонт фасада, оперативная замена старых оконных блоков и покраска элементов на высоте. Работы выполнены без герметизации панельных швов.</p>
                         <div class="project-meta">
                             <div>
                                 <span class="meta-label">Технология</span>
@@ -725,89 +659,34 @@
     </section>
 
     <section id="contact" class="cta-section">
-        <div class="container cta-grid">
-            <div>
-                <h2 class="section-title">Обсудим ваш <span>проект</span>?</h2>
-                <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 16px;">Оставьте свои контакты и кратко опишите задачу. Инженер ТОО «СТЭКА» свяжется с вами для уточнения деталей, проведения замеров на объекте и подготовки прозрачного коммерческого предложения.</p>
+        <div class="container">
+            <div class="contact-box">
+                <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 20px;">Остались <span>вопросы</span>?</h2>
+                <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 16px;">Свяжитесь с инженерным отделом ПК «Стека» для консультации по проектно-сметной документации и деталям сотрудничества.</p>
                 
-                <div style="margin-bottom: 20px;">
-                    <strong style="color: #fff; display: block; margin-bottom: 8px; font-size: 15px;">Следите за нашими буднями на объектах:</strong>
-                    <a href="https://www.instagram.com/steka_proekt?igsh=Y2QwN2RyaDQ1OXU5" target="_blank" style="color: var(--accent); font-weight: 700; text-decoration: underline; font-size: 16px;">@steka_proekt в Instagram</a>
+                <div style="display:flex; flex-direction:column; gap:20px; align-items:center; margin-bottom: 30px;">
+                    <a href="https://wa.me/77021045190" style="background-color: #25D366; color: #fff; padding: 16px 30px; border-radius: 6px; font-size: 18px; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; width: 100%; justify-content: center; max-width: 350px;">
+                        <span>💬</span> Написать в WhatsApp
+                    </a>
+                    <a href="tel:+77021045190" style="background-color: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-light); padding: 16px 30px; border-radius: 6px; font-size: 18px; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; width: 100%; justify-content: center; max-width: 350px; transition: border-color 0.3s;">
+                        <span>📞</span> +7 702 104 5190
+                    </a>
                 </div>
 
-                <div style="margin-top: 10px; display:flex; flex-direction:column; gap:10px;">
-                    <a href="https://wa.me/77023990999?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D0%B0%D1%88%D1%91%D0%BB%20%D0%B2%D0%B0%D1%81%20%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B5%20steka.kz.%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82." style="color: var(--text-light); font-size:15px; display:flex; align-items:center; gap:8px;">
-                        <span style="font-size:20px;">💬</span> WhatsApp: <strong>+7 702 399 09 99</strong>
-                    </a>
-                    <a href="tel:+77770061119" style="color: var(--text-light); font-size:15px; display:flex; align-items:center; gap:8px;">
-                        <span style="font-size:20px;">📞</span> Звонок: <strong>+7 777 006 11 19</strong>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="form-box">
-                <form
-                    action="https://formspree.io/f/steka-proekt@mail.ru"
-                    method="POST"
-                    onsubmit="handleFormSubmit(event)">
-                    <div class="form-group">
-                        <label for="name">Ваше имя / Компания</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="ТОО / Иван Иванов" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Номер телефона</label>
-                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="+7 (707) 123-45-67" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Краткое описание задачи</label>
-                        <textarea id="message" name="message" rows="4" class="form-control" placeholder="Например: Капитальный ремонт кровли/фасада, площадь объекта..."></textarea>
-                    </div>
-                    <input type="hidden" name="_subject" value="Новая заявка с сайта СТЭКА">
-                    <input type="hidden" name="_language" value="ru">
-                    <button type="submit" class="btn" style="width: 100%; padding: 16px;">Отправить запрос на расчет</button>
-                </form>
-                <div id="form-success" style="display:none; color:#00ff6a; margin-top:16px; font-weight:600; text-align:center;">
-                    ✅ Спасибо! Заявка отправлена. Свяжемся с вами в ближайшее время.
+                <div style="border-top: 1px solid var(--border-color); padding-top: 20px;">
+                    <strong style="color: #fff; display: block; margin-bottom: 8px; font-size: 14px;">Следите за нашими буднями на объектах:</strong>
+                    <a href="https://www.instagram.com/steka_proekt?igsh=Y2QwN2RyaDQ1OXU5" target="_blank" style="color: var(--accent); font-weight: 700; text-decoration: none; font-size: 16px;">@steka_proekt в Instagram</a>
                 </div>
             </div>
         </div>
     </section>
-
-    <script>
-    async function handleFormSubmit(e) {
-        e.preventDefault();
-        const form = e.target;
-        const btn = form.querySelector('button[type="submit"]');
-        btn.disabled = true;
-        btn.textContent = 'Отправка...';
-        try {
-            const res = await fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form),
-                headers: { 'Accept': 'application/json' }
-            });
-            if (res.ok) {
-                form.style.display = 'none';
-                document.getElementById('form-success').style.display = 'block';
-            } else {
-                btn.disabled = false;
-                btn.textContent = 'Отправить запрос на расчет';
-                alert('Ошибка отправки. Попробуйте ещё раз или напишите нам в WhatsApp.');
-            }
-        } catch {
-            btn.disabled = false;
-            btn.textContent = 'Отправить запрос на расчет';
-            alert('Ошибка отправки. Проверьте интернет-соединение.');
-        }
-    }
-    </script>
 
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="logo" style="margin-bottom: 20px;">
-                        <div class="logo-title">СТЭКА<span>.</span></div>
+                        <div class="logo-title">ПК «Стека»<span>.</span></div>
                     </div>
                     <p style="line-height: 1.6;">Профессиональный и надежный подход к промышленному, гражданскому строительству и высотному сервису на всей территории Республики Казахстан.</p>
                 </div>
@@ -815,24 +694,24 @@
                     <h4>Навигация</h4>
                     <ul>
                         <li><a href="#services">Наши направления</a></li>
+                        <li><a href="#documents">Лицензии и документы</a></li>
                         <li><a href="#portfolio">Выполненные объекты</a></li>
-                        <li><a href="#contact">Контакты и заявка</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
-                    <h4>География работы</h4>
+                    <h4>Контакты</h4>
                     <ul>
                         <li>Центральный офис: Темиртау</li>
                         <li>Реализация проектов: Весь Казахстан</li>
-                        <li><a href="https://wa.me/77023990999?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9D%D0%B0%D1%88%D1%91%D0%BB%20%D0%B2%D0%B0%D1%81%20%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B5%20steka.kz.%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82.">WhatsApp: +7 702 399 09 99</a></li>
-                        <li><a href="tel:+77770061119">Звонок: +7 777 006 11 19</a></li>
+                        <li><a href="https://wa.me/77021045190">WhatsApp: +7 702 104 5190</a></li>
+                        <li><a href="tel:+77021045190">Звонок: +7 702 104 5190</a></li>
                         <li>Instagram: @steka_proekt</li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <div>&copy; 2026 ТОО «СТЭКА». Все права защищены.</div>
-                <div>Генеральный подряд, СМР и промышленный альпинизм.</div>
+                <div>&copy; 2026 ПК «Стека». Все права защищены.</div>
+                <div>Генеральный подряд, СМР и проектная деятельность.</div>
             </div>
         </div>
     </footer>
