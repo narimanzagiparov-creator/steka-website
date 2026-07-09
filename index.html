@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>ПК «Стэка» | Строительно-монтажная компания и генподряд</title>
     <style>
         :root {
@@ -23,16 +23,25 @@
             scroll-behavior: smooth;
         }
 
+        html {
+            overflow-x: hidden;
+        }
+
         body {
             background-color: var(--bg-main);
             color: var(--text-light);
             line-height: 1.6;
             padding-top: 96px;
+            overflow-x: hidden;
         }
 
         a {
             color: inherit;
             text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
         }
 
         .container {
@@ -101,10 +110,32 @@
             font-size: 16px;
             font-weight: 800;
             transition: color 0.3s;
+            white-space: nowrap;
         }
 
         nav a:hover {
             color: var(--accent);
+        }
+
+        .menu-toggle {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-light);
+            font-size: 24px;
+            font-weight: 900;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .menu-toggle span {
+            display: block;
+            transform: translateY(-1px);
         }
 
         .hero {
@@ -628,6 +659,43 @@
             font-size: 12px;
         }
 
+        .doc-lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            width: 54px;
+            height: 68px;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(18, 20, 22, 0.78);
+            color: var(--text-light);
+            font-size: 46px;
+            font-weight: 700;
+            line-height: 1;
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+        }
+
+        .doc-lightbox-nav:hover {
+            background: rgba(255, 106, 0, 0.16);
+            border-color: rgba(255, 106, 0, 0.45);
+            color: var(--accent);
+        }
+
+        .doc-lightbox-nav:disabled {
+            opacity: 0.28;
+            cursor: not-allowed;
+        }
+
+        .doc-lightbox-prev {
+            left: 18px;
+        }
+
+        .doc-lightbox-next {
+            right: 18px;
+        }
+
         @media (max-width: 992px) {
             .project-card {
                 grid-template-columns: 1fr;
@@ -638,23 +706,316 @@
         }
 
         @media (max-width: 768px) {
-            body { padding-top: 90px; }
-            .header-inner { flex-direction: column; align-items: flex-start; gap: 10px; min-height: 90px; }
-            nav { width: 100%; overflow-x: auto; padding-bottom: 10px; }
-            nav ul { flex-wrap: nowrap; justify-content: flex-start; }
-            .hero h1 { font-size: 34px; }
-            .hero p { font-size: 16px; }
+            body {
+                padding-top: 82px;
+            }
+
+            .container {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .header-inner {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                gap: 14px;
+                min-height: 82px;
+                position: relative;
+            }
+
+            .logo {
+                min-width: 0;
+                margin-right: 0;
+            }
+
+            .logo-title {
+                font-size: 25px;
+                letter-spacing: 1.4px;
+                line-height: 1.05;
+            }
+
+            .logo-sub {
+                font-size: 10px;
+                letter-spacing: 1.2px;
+                margin-top: 2px;
+            }
+
+            .menu-toggle {
+                display: flex;
+                flex: 0 0 44px;
+            }
+
+            nav {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 100%;
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                padding: 0;
+                background: rgba(18, 20, 22, 0.98);
+                border-bottom: 1px solid transparent;
+                box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+                transition: max-height 0.28s ease, border-color 0.28s ease;
+            }
+
+            nav.is-open {
+                max-height: 360px;
+                border-color: var(--border-color);
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: flex-start;
+                flex-wrap: nowrap;
+                gap: 0;
+                padding: 10px 18px 16px;
+            }
+
+            nav li {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            }
+
+            nav li:last-child {
+                border-bottom: 0;
+            }
+
+            nav a {
+                display: block;
+                width: 100%;
+                padding: 13px 0;
+                font-size: 16px;
+                line-height: 1.2;
+                white-space: nowrap;
+            }
+
+            .hero {
+                padding: 80px 0 88px;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero h1 {
+                font-size: clamp(38px, 10vw, 48px);
+                line-height: 1.08;
+                letter-spacing: -0.8px;
+                margin-bottom: 24px;
+            }
+
+            .hero p {
+                font-size: 18px;
+                line-height: 1.65;
+                max-width: 100%;
+            }
+
+            .stats {
+                padding: 44px 0;
+            }
+
+            .stats-grid {
+                gap: 24px;
+            }
+
             .project-card .project-video-container {
                 max-height: 320px;
             }
-            .project-info { padding: 24px; }
-            section { padding: 70px 0; }
-            .documents-grid { grid-template-columns: 1fr; }
-            .license-box { padding: 20px; }
-            .license-facts { grid-template-columns: 1fr; }
-            .license-pages { height: 520px; padding: 10px; }
-            .logo-title { font-size: 27px; }
-            nav a { font-size: 15px; }
+
+            .project-info {
+                padding: 24px;
+            }
+
+            section {
+                padding: 68px 0;
+            }
+
+            .section-title {
+                font-size: 34px;
+                line-height: 1.12;
+                text-align: center;
+            }
+
+            .section-desc {
+                font-size: 16px;
+                line-height: 1.55;
+                text-align: center;
+                margin: 0 auto 38px;
+            }
+
+            .documents-grid {
+                grid-template-columns: 1fr;
+                gap: 22px;
+            }
+
+            .license-box {
+                padding: 18px;
+                border-radius: 12px;
+            }
+
+            .license-head {
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+
+            .license-icon {
+                width: 44px;
+                height: 44px;
+                flex-basis: 44px;
+                font-size: 22px;
+                border-radius: 9px;
+            }
+
+            .license-box h3 {
+                font-size: 19px;
+                line-height: 1.28;
+            }
+
+            .license-box p {
+                font-size: 14px;
+                line-height: 1.55;
+            }
+
+            .license-facts {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                margin: 18px 0;
+            }
+
+            .license-fact {
+                padding: 11px 12px;
+            }
+
+            .license-viewer-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+                line-height: 1.35;
+            }
+
+            .license-pages {
+                height: 540px;
+                padding: 10px;
+            }
+
+            .doc-lightbox {
+                padding: 0;
+                align-items: stretch;
+                justify-content: stretch;
+            }
+
+            .doc-lightbox-panel {
+                width: 100vw;
+                height: 100dvh;
+                border-radius: 0;
+                border-left: 0;
+                border-right: 0;
+            }
+
+            .doc-lightbox-toolbar {
+                padding: 10px;
+                gap: 8px;
+            }
+
+            .doc-lightbox-title {
+                font-size: 13px;
+                white-space: normal;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+
+            .doc-lightbox-actions {
+                gap: 6px;
+            }
+
+            .doc-lightbox-btn {
+                min-width: 38px;
+                height: 36px;
+                padding: 0 9px;
+                font-size: 17px;
+                border-radius: 8px;
+            }
+
+            .doc-lightbox-close {
+                font-size: 24px;
+            }
+
+            .doc-lightbox-stage {
+                padding: 54px 10px 74px;
+            }
+
+            .doc-lightbox-image {
+                max-width: 96vw;
+                max-height: calc(100dvh - 178px);
+            }
+
+            .doc-lightbox-hint {
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 16px;
+                width: max-content;
+                max-width: calc(100vw - 96px);
+                text-align: center;
+                font-size: 11px;
+                padding: 7px 10px;
+            }
+
+            .doc-lightbox-nav {
+                top: auto;
+                bottom: 14px;
+                transform: none;
+                width: 48px;
+                height: 48px;
+                border-radius: 12px;
+                font-size: 36px;
+                background: rgba(18, 20, 22, 0.9);
+            }
+
+            .doc-lightbox-prev {
+                left: 12px;
+            }
+
+            .doc-lightbox-next {
+                right: 12px;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .container {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .logo-title {
+                font-size: 23px;
+                letter-spacing: 1.1px;
+            }
+
+            .logo-sub {
+                font-size: 9px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .license-box h3 {
+                font-size: 18px;
+            }
+
+            .doc-lightbox-btn {
+                min-width: 35px;
+                height: 34px;
+                padding: 0 8px;
+            }
         }
     </style>
 </head>
@@ -666,7 +1027,8 @@
                 <div class="logo-title">ПК «Стэка»<span>.</span></div>
                 <div class="logo-sub">Строительная компания</div>
             </div>
-            <nav>
+            <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mainNav"><span>☰</span></button>
+            <nav id="mainNav">
                 <ul>
                     <li><a href="#about">О нас</a></li>
                     <li><a href="#services">Услуги</a></li>
@@ -1066,14 +1428,35 @@
                 </div>
             </div>
             <div class="doc-lightbox-stage" id="docLightboxStage">
+                <button class="doc-lightbox-nav doc-lightbox-prev" type="button" id="docPrevPage" aria-label="Предыдущая страница">‹</button>
                 <img class="doc-lightbox-image" id="docLightboxImage" src="" alt="">
-                <div class="doc-lightbox-hint">Колёсико мыши / кнопки + − для масштаба, Esc — закрыть</div>
+                <button class="doc-lightbox-nav doc-lightbox-next" type="button" id="docNextPage" aria-label="Следующая страница">›</button>
+                <div class="doc-lightbox-hint">+ / − — масштаб, стрелки — листать, Esc — закрыть</div>
             </div>
         </div>
     </div>
 
     <script>
         (function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.getElementById('mainNav');
+
+            if (menuToggle && nav) {
+                menuToggle.addEventListener('click', () => {
+                    const isOpen = nav.classList.toggle('is-open');
+                    menuToggle.setAttribute('aria-expanded', String(isOpen));
+                    menuToggle.querySelector('span').textContent = isOpen ? '×' : '☰';
+                });
+
+                nav.querySelectorAll('a').forEach((link) => {
+                    link.addEventListener('click', () => {
+                        nav.classList.remove('is-open');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                        menuToggle.querySelector('span').textContent = '☰';
+                    });
+                });
+            }
+
             const lightbox = document.getElementById('docLightbox');
             const stage = document.getElementById('docLightboxStage');
             const image = document.getElementById('docLightboxImage');
@@ -1082,6 +1465,8 @@
             const zoomInBtn = document.getElementById('docZoomIn');
             const zoomOutBtn = document.getElementById('docZoomOut');
             const zoomResetBtn = document.getElementById('docZoomReset');
+            const prevBtn = document.getElementById('docPrevPage');
+            const nextBtn = document.getElementById('docNextPage');
 
             let scale = 1;
             let translateX = 0;
@@ -1091,6 +1476,11 @@
             let startY = 0;
             let startTranslateX = 0;
             let startTranslateY = 0;
+            let currentGallery = [];
+            let currentIndex = 0;
+            let pointerDownX = 0;
+            let pointerDownY = 0;
+            let pointerDownTime = 0;
 
             function updateTransform() {
                 image.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
@@ -1114,14 +1504,43 @@
                 updateTransform();
             }
 
+            function updateNavButtons() {
+                const hasManyPages = currentGallery.length > 1;
+                prevBtn.style.display = hasManyPages ? '' : 'none';
+                nextBtn.style.display = hasManyPages ? '' : 'none';
+                prevBtn.disabled = !hasManyPages || currentIndex === 0;
+                nextBtn.disabled = !hasManyPages || currentIndex === currentGallery.length - 1;
+            }
+
+            function showCurrentPage(options = {}) {
+                if (!currentGallery.length) return;
+
+                const preserveZoom = Boolean(options.preserveZoom);
+                const savedScale = preserveZoom ? scale : 1;
+                const currentImage = currentGallery[currentIndex];
+                const pageTitle = currentImage.alt || 'Документ';
+                const pageCounter = currentGallery.length > 1 ? ` — ${currentIndex + 1} из ${currentGallery.length}` : '';
+
+                image.src = currentImage.currentSrc || currentImage.src;
+                image.alt = pageTitle;
+                title.textContent = pageTitle + pageCounter;
+
+                scale = Math.max(1, savedScale);
+                translateX = 0;
+                translateY = 0;
+                updateTransform();
+                updateNavButtons();
+            }
+
             function openLightbox(sourceImage) {
-                image.src = sourceImage.currentSrc || sourceImage.src;
-                image.alt = sourceImage.alt || 'Документ';
-                title.textContent = sourceImage.alt || 'Документ';
-                resetView();
+                const galleryContainer = sourceImage.closest('.license-pages');
+                currentGallery = galleryContainer ? Array.from(galleryContainer.querySelectorAll('img')) : [sourceImage];
+                currentIndex = Math.max(0, currentGallery.indexOf(sourceImage));
+
                 lightbox.classList.add('is-open');
                 lightbox.setAttribute('aria-hidden', 'false');
                 document.body.classList.add('no-scroll');
+                showCurrentPage({ preserveZoom: false });
                 closeBtn.focus();
             }
 
@@ -1130,6 +1549,24 @@
                 lightbox.setAttribute('aria-hidden', 'true');
                 document.body.classList.remove('no-scroll');
                 image.src = '';
+                currentGallery = [];
+                currentIndex = 0;
+                resetView();
+            }
+
+            function goToPage(nextIndex, preserveZoom = true) {
+                if (!currentGallery.length) return;
+                if (nextIndex < 0 || nextIndex >= currentGallery.length) return;
+                currentIndex = nextIndex;
+                showCurrentPage({ preserveZoom });
+            }
+
+            function showPrevPage() {
+                goToPage(currentIndex - 1, true);
+            }
+
+            function showNextPage() {
+                goToPage(currentIndex + 1, true);
             }
 
             document.querySelectorAll('.license-pages img').forEach((docImage) => {
@@ -1147,6 +1584,9 @@
             });
 
             closeBtn.addEventListener('click', closeLightbox);
+            prevBtn.addEventListener('click', showPrevPage);
+            nextBtn.addEventListener('click', showNextPage);
+
             lightbox.addEventListener('click', (event) => {
                 if (event.target === lightbox) closeLightbox();
             });
@@ -1162,6 +1602,11 @@
             }, { passive: false });
 
             stage.addEventListener('pointerdown', (event) => {
+                if (event.target.closest('.doc-lightbox-nav')) return;
+                pointerDownX = event.clientX;
+                pointerDownY = event.clientY;
+                pointerDownTime = Date.now();
+
                 if (scale <= 1) return;
                 isDragging = true;
                 stage.classList.add('is-dragging');
@@ -1180,6 +1625,15 @@
             });
 
             function stopDragging(event) {
+                const swipeX = event.clientX - pointerDownX;
+                const swipeY = event.clientY - pointerDownY;
+                const swipeTime = Date.now() - pointerDownTime;
+
+                if (!isDragging && scale <= 1 && swipeTime < 450 && Math.abs(swipeX) > 70 && Math.abs(swipeY) < 55) {
+                    if (swipeX < 0) showNextPage();
+                    if (swipeX > 0) showPrevPage();
+                }
+
                 if (!isDragging) return;
                 isDragging = false;
                 stage.classList.remove('is-dragging');
@@ -1199,6 +1653,8 @@
                 if (event.key === '+' || event.key === '=') setZoom(scale + 0.25);
                 if (event.key === '-' || event.key === '_') setZoom(scale - 0.25);
                 if (event.key === '0') resetView();
+                if (event.key === 'ArrowLeft') showPrevPage();
+                if (event.key === 'ArrowRight') showNextPage();
             });
         })();
     </script>
