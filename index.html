@@ -27,7 +27,7 @@
             background-color: var(--bg-main);
             color: var(--text-light);
             line-height: 1.6;
-            padding-top: 92px;
+            padding-top: 96px;
         }
 
         a {
@@ -57,7 +57,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            min-height: 92px;
+            min-height: 96px;
             padding: 10px 0;
         }
 
@@ -68,7 +68,7 @@
         }
 
         .logo-title {
-            font-size: 30px;
+            font-size: 32px;
             font-weight: 900;
             letter-spacing: 2px;
             color: var(--text-light);
@@ -81,7 +81,7 @@
         }
 
         .logo-sub {
-            font-size: 11px;
+            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--text-muted);
@@ -92,14 +92,14 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 22px;
             flex-wrap: wrap;
             justify-content: flex-end;
         }
 
         nav a {
-            font-size: 15px;
-            font-weight: 700;
+            font-size: 16px;
+            font-weight: 800;
             transition: color 0.3s;
         }
 
@@ -442,7 +442,7 @@
         .license-fact span {
             display: block;
             color: var(--text-muted);
-            font-size: 11px;
+            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 4px;
@@ -489,6 +489,145 @@
             margin-bottom: 0;
         }
 
+
+
+        .license-pages img {
+            cursor: zoom-in;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .license-pages img:hover {
+            transform: scale(1.01);
+            box-shadow: 0 0 0 2px rgba(255, 106, 0, 0.35);
+        }
+
+        body.no-scroll {
+            overflow: hidden;
+        }
+
+        .doc-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 5000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: rgba(0, 0, 0, 0.82);
+            backdrop-filter: blur(8px);
+        }
+
+        .doc-lightbox.is-open {
+            display: flex;
+        }
+
+        .doc-lightbox-panel {
+            width: min(1180px, 96vw);
+            height: min(92vh, 980px);
+            background: #0b0c0d;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .doc-lightbox-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 16px;
+            background: rgba(18, 20, 22, 0.98);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .doc-lightbox-title {
+            color: var(--text-light);
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 1.35;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .doc-lightbox-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 0 0 auto;
+        }
+
+        .doc-lightbox-btn {
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-light);
+            min-width: 42px;
+            height: 38px;
+            padding: 0 12px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+        }
+
+        .doc-lightbox-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .doc-lightbox-close {
+            background: rgba(255, 106, 0, 0.12);
+            border-color: rgba(255, 106, 0, 0.35);
+            color: var(--accent);
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .doc-lightbox-stage {
+            position: relative;
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            cursor: grab;
+            touch-action: none;
+        }
+
+        .doc-lightbox-stage.is-dragging {
+            cursor: grabbing;
+        }
+
+        .doc-lightbox-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            user-select: none;
+            pointer-events: none;
+            transform-origin: center center;
+            transition: transform 0.12s ease-out;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+        }
+
+        .doc-lightbox-hint {
+            position: absolute;
+            left: 24px;
+            bottom: 18px;
+            color: rgba(245, 246, 247, 0.74);
+            background: rgba(11, 12, 13, 0.72);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-size: 12px;
+        }
+
         @media (max-width: 992px) {
             .project-card {
                 grid-template-columns: 1fr;
@@ -499,8 +638,8 @@
         }
 
         @media (max-width: 768px) {
-            body { padding-top: 86px; }
-            .header-inner { flex-direction: column; align-items: flex-start; gap: 10px; min-height: 86px; }
+            body { padding-top: 90px; }
+            .header-inner { flex-direction: column; align-items: flex-start; gap: 10px; min-height: 90px; }
             nav { width: 100%; overflow-x: auto; padding-bottom: 10px; }
             nav ul { flex-wrap: nowrap; justify-content: flex-start; }
             .hero h1 { font-size: 34px; }
@@ -514,8 +653,8 @@
             .license-box { padding: 20px; }
             .license-facts { grid-template-columns: 1fr; }
             .license-pages { height: 520px; padding: 10px; }
-            .logo-title { font-size: 26px; }
-            nav a { font-size: 14px; }
+            .logo-title { font-size: 27px; }
+            nav a { font-size: 15px; }
         }
     </style>
 </head>
@@ -630,7 +769,7 @@
                     </div>
 
                     <div class="license-viewer-title">
-                        <span>Листайте документ внутри блока</span>
+                        <span>Листайте внутри блока или нажмите на страницу для увеличения</span>
                         <span>6 страниц</span>
                     </div>
                     <div class="license-pages" aria-label="Просмотр лицензии на проектную деятельность">
@@ -672,7 +811,7 @@
                     </div>
 
                     <div class="license-viewer-title">
-                        <span>Листайте документ внутри блока</span>
+                        <span>Листайте внутри блока или нажмите на страницу для увеличения</span>
                         <span>5 страниц</span>
                     </div>
                     <div class="license-pages" aria-label="Просмотр лицензии на строительно-монтажные работы">
@@ -713,7 +852,7 @@
                     </div>
 
                     <div class="license-viewer-title">
-                        <span>Документ отображается прямо на сайте</span>
+                        <span>Нажмите на документ, чтобы увеличить</span>
                         <span>1 страница</span>
                     </div>
                     <div class="license-pages" aria-label="Просмотр решения о регистрации устава кооператива">
@@ -913,6 +1052,156 @@
             </div>
         </div>
     </footer>
+
+
+    <div class="doc-lightbox" id="docLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Увеличенный просмотр документа">
+        <div class="doc-lightbox-panel">
+            <div class="doc-lightbox-toolbar">
+                <div class="doc-lightbox-title" id="docLightboxTitle">Документ</div>
+                <div class="doc-lightbox-actions">
+                    <button class="doc-lightbox-btn" type="button" id="docZoomOut" aria-label="Уменьшить">−</button>
+                    <button class="doc-lightbox-btn" type="button" id="docZoomReset" aria-label="Вернуть масштаб">100%</button>
+                    <button class="doc-lightbox-btn" type="button" id="docZoomIn" aria-label="Увеличить">+</button>
+                    <button class="doc-lightbox-btn doc-lightbox-close" type="button" id="docLightboxClose" aria-label="Закрыть">×</button>
+                </div>
+            </div>
+            <div class="doc-lightbox-stage" id="docLightboxStage">
+                <img class="doc-lightbox-image" id="docLightboxImage" src="" alt="">
+                <div class="doc-lightbox-hint">Колёсико мыши / кнопки + − для масштаба, Esc — закрыть</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            const lightbox = document.getElementById('docLightbox');
+            const stage = document.getElementById('docLightboxStage');
+            const image = document.getElementById('docLightboxImage');
+            const title = document.getElementById('docLightboxTitle');
+            const closeBtn = document.getElementById('docLightboxClose');
+            const zoomInBtn = document.getElementById('docZoomIn');
+            const zoomOutBtn = document.getElementById('docZoomOut');
+            const zoomResetBtn = document.getElementById('docZoomReset');
+
+            let scale = 1;
+            let translateX = 0;
+            let translateY = 0;
+            let isDragging = false;
+            let startX = 0;
+            let startY = 0;
+            let startTranslateX = 0;
+            let startTranslateY = 0;
+
+            function updateTransform() {
+                image.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+                zoomResetBtn.textContent = Math.round(scale * 100) + '%';
+            }
+
+            function resetView() {
+                scale = 1;
+                translateX = 0;
+                translateY = 0;
+                updateTransform();
+            }
+
+            function setZoom(nextScale) {
+                const clamped = Math.min(4, Math.max(1, nextScale));
+                scale = Math.round(clamped * 100) / 100;
+                if (scale === 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+                updateTransform();
+            }
+
+            function openLightbox(sourceImage) {
+                image.src = sourceImage.currentSrc || sourceImage.src;
+                image.alt = sourceImage.alt || 'Документ';
+                title.textContent = sourceImage.alt || 'Документ';
+                resetView();
+                lightbox.classList.add('is-open');
+                lightbox.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('no-scroll');
+                closeBtn.focus();
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('is-open');
+                lightbox.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('no-scroll');
+                image.src = '';
+            }
+
+            document.querySelectorAll('.license-pages img').forEach((docImage) => {
+                docImage.setAttribute('tabindex', '0');
+                docImage.setAttribute('role', 'button');
+                docImage.setAttribute('title', 'Нажмите, чтобы увеличить документ');
+
+                docImage.addEventListener('click', () => openLightbox(docImage));
+                docImage.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        openLightbox(docImage);
+                    }
+                });
+            });
+
+            closeBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (event) => {
+                if (event.target === lightbox) closeLightbox();
+            });
+
+            zoomInBtn.addEventListener('click', () => setZoom(scale + 0.25));
+            zoomOutBtn.addEventListener('click', () => setZoom(scale - 0.25));
+            zoomResetBtn.addEventListener('click', resetView);
+
+            stage.addEventListener('wheel', (event) => {
+                event.preventDefault();
+                const direction = event.deltaY < 0 ? 0.18 : -0.18;
+                setZoom(scale + direction);
+            }, { passive: false });
+
+            stage.addEventListener('pointerdown', (event) => {
+                if (scale <= 1) return;
+                isDragging = true;
+                stage.classList.add('is-dragging');
+                startX = event.clientX;
+                startY = event.clientY;
+                startTranslateX = translateX;
+                startTranslateY = translateY;
+                stage.setPointerCapture(event.pointerId);
+            });
+
+            stage.addEventListener('pointermove', (event) => {
+                if (!isDragging) return;
+                translateX = startTranslateX + (event.clientX - startX);
+                translateY = startTranslateY + (event.clientY - startY);
+                updateTransform();
+            });
+
+            function stopDragging(event) {
+                if (!isDragging) return;
+                isDragging = false;
+                stage.classList.remove('is-dragging');
+                if (event.pointerId) {
+                    try { stage.releasePointerCapture(event.pointerId); } catch (e) {}
+                }
+            }
+
+            stage.addEventListener('pointerup', stopDragging);
+            stage.addEventListener('pointercancel', stopDragging);
+            stage.addEventListener('pointerleave', stopDragging);
+
+            document.addEventListener('keydown', (event) => {
+                if (!lightbox.classList.contains('is-open')) return;
+
+                if (event.key === 'Escape') closeLightbox();
+                if (event.key === '+' || event.key === '=') setZoom(scale + 0.25);
+                if (event.key === '-' || event.key === '_') setZoom(scale - 0.25);
+                if (event.key === '0') resetView();
+            });
+        })();
+    </script>
 
 </body>
 </html>
