@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ПК «Стека» | Строительно-монтажная компания и генподряд</title>
+    <title>ПК «Стэка» | Строительно-монтажная компания и генподряд</title>
     <style>
         :root {
             --bg-main: #121416;
@@ -27,7 +27,7 @@
             background-color: var(--bg-main);
             color: var(--text-light);
             line-height: 1.6;
-            padding-top: 80px;
+            padding-top: 92px;
         }
 
         a {
@@ -37,7 +37,7 @@
 
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1240px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -57,7 +57,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            min-height: 80px;
+            min-height: 92px;
             padding: 10px 0;
         }
 
@@ -68,7 +68,7 @@
         }
 
         .logo-title {
-            font-size: 24px;
+            font-size: 30px;
             font-weight: 900;
             letter-spacing: 2px;
             color: var(--text-light);
@@ -81,7 +81,7 @@
         }
 
         .logo-sub {
-            font-size: 10px;
+            font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--text-muted);
@@ -92,14 +92,14 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
             justify-content: flex-end;
         }
 
         nav a {
-            font-size: 13px;
-            font-weight: 500;
+            font-size: 15px;
+            font-weight: 700;
             transition: color 0.3s;
         }
 
@@ -110,8 +110,8 @@
         .hero {
             padding: 120px 0;
             position: relative;
-            background: linear-gradient(180deg, rgba(18,20,22,0.85) 0%, rgba(18,20,22,1) 100%), 
-                        url('WhatsApp Image 2026-06-15 at 16.58.33.jpeg') center/cover no-repeat;
+            background: radial-gradient(circle at 15% 20%, rgba(255, 106, 0, 0.18) 0%, rgba(255, 106, 0, 0) 32%),
+                        linear-gradient(180deg, rgba(18,20,22,0.92) 0%, rgba(18,20,22,1) 100%);
         }
 
         .hero-content {
@@ -379,26 +379,114 @@
             gap: 20px;
         }
         
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 34px;
+        }
+
         .license-box {
             background: var(--bg-main);
             border: 1px solid var(--border-color);
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
+            padding: 28px;
+            border-radius: 10px;
             width: 100%;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.18);
         }
 
-        .license-placeholder {
-            width: 100%;
-            height: 350px;
-            background: #2d3135;
+        .license-head {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            margin-bottom: 18px;
+        }
+
+        .license-icon {
+            width: 54px;
+            height: 54px;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: rgba(255, 106, 0, 0.1);
+            border: 1px solid rgba(255, 106, 0, 0.25);
+            border-radius: 10px;
+            font-size: 28px;
+            flex: 0 0 54px;
+        }
+
+        .license-box h3 {
+            font-size: 22px;
+            line-height: 1.25;
+            margin-bottom: 6px;
+        }
+
+        .license-box p {
             color: var(--text-muted);
-            border-radius: 4px;
-            margin-top: 20px;
-            border: 2px dashed #4a5056;
+            font-size: 14px;
+        }
+
+        .license-facts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 22px 0;
+        }
+
+        .license-fact {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .license-fact span {
+            display: block;
+            color: var(--text-muted);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .license-fact strong {
+            display: block;
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.35;
+        }
+
+        .license-viewer-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 10px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .license-pages {
+            height: 680px;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            background: #0b0c0d;
+            padding: 14px;
+            scroll-snap-type: y proximity;
+        }
+
+        .license-pages img {
+            width: 100%;
+            display: block;
+            border-radius: 6px;
+            background: #fff;
+            margin-bottom: 14px;
+            scroll-snap-align: start;
+        }
+
+        .license-pages img:last-child {
+            margin-bottom: 0;
         }
 
         @media (max-width: 992px) {
@@ -411,8 +499,8 @@
         }
 
         @media (max-width: 768px) {
-            body { padding-top: 70px; }
-            .header-inner { flex-direction: column; align-items: flex-start; gap: 10px; }
+            body { padding-top: 86px; }
+            .header-inner { flex-direction: column; align-items: flex-start; gap: 10px; min-height: 86px; }
             nav { width: 100%; overflow-x: auto; padding-bottom: 10px; }
             nav ul { flex-wrap: nowrap; justify-content: flex-start; }
             .hero h1 { font-size: 34px; }
@@ -422,6 +510,12 @@
             }
             .project-info { padding: 24px; }
             section { padding: 70px 0; }
+            .documents-grid { grid-template-columns: 1fr; }
+            .license-box { padding: 20px; }
+            .license-facts { grid-template-columns: 1fr; }
+            .license-pages { height: 520px; padding: 10px; }
+            .logo-title { font-size: 26px; }
+            nav a { font-size: 14px; }
         }
     </style>
 </head>
@@ -430,27 +524,26 @@
     <header>
         <div class="container header-inner">
             <div class="logo">
-                <div class="logo-title">ПК «Стека»<span>.</span></div>
+                <div class="logo-title">ПК «Стэка»<span>.</span></div>
                 <div class="logo-sub">Строительная компания</div>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#portfolio">Проектирование</a></li>
-                    <li><a href="#services">СМР любой сложности</a></li>
-                    <li><a href="#services">Гражданское строительство</a></li>
-                    <li><a href="#services">Промышленное строительство</a></li>
-                    <li><a href="#portfolio">Капитальные ремонты</a></li>
-                    <li><a href="#portfolio">Промышленный альпинизм</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#services">Услуги</a></li>
+                    <li><a href="#documents">Разрешительная документация</a></li>
+                    <li><a href="#portfolio">Реализованные проекты</a></li>
+                    <li><a href="#contact">Контакты</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
+    <section id="about" class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>От проекта до его реализации</h1>
-                <p>ПК «Стека» работает по проектно-сметной документации (B2B сегмент), оказывая комплексные услуги по генподряду, проектированию, капитальному ремонту и высотно-монтажным работам.</p>
+                <p>ПК «Стэка» работает по проектно-сметной документации (B2B сегмент), оказывая комплексные услуги по генподряду, проектированию, капитальному ремонту и высотно-монтажным работам.</p>
             </div>
         </div>
     </section>
@@ -505,23 +598,126 @@
     <section id="documents" style="background-color: var(--bg-card); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
         <div class="container">
             <h2 class="section-title">Разрешительная <span>документация</span></h2>
-            <p class="section-desc">Надежность и качество подтверждены государственными лицензиями.</p>
+            <p class="section-desc">Лицензии ПК «Стэка» доступны прямо на странице: их можно читать и листать без скачивания файлов.</p>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+            <div class="documents-grid">
                 <div class="license-box">
-                    <div style="font-size: 40px; margin-bottom: 15px;">📐</div>
-                    <h3>Лицензия I категории</h3>
-                    <p style="color: var(--text-muted); font-size: 14px;">На занятие проектной деятельностью</p>
-                    <div class="license-placeholder">
-                        <span>[Загрузите скан Лицензии на проектирование]</span>
+                    <div class="license-head">
+                        <div class="license-icon">📐</div>
+                        <div>
+                            <h3>Государственная лицензия на проектную деятельность</h3>
+                            <p>Проектирование, инженерные системы, архитектурное и строительное проектирование.</p>
+                        </div>
+                    </div>
+
+                    <div class="license-facts">
+                        <div class="license-fact">
+                            <span>Номер</span>
+                            <strong>ГСЛ № 005397</strong>
+                        </div>
+                        <div class="license-fact">
+                            <span>Дата выдачи</span>
+                            <strong>20.06.2001</strong>
+                        </div>
+                        <div class="license-fact">
+                            <span>Категория</span>
+                            <strong>I категория</strong>
+                        </div>
+                        <div class="license-fact">
+                            <span>Лицензиат</span>
+                            <strong>ПК «Стэка», БИН 941240000629</strong>
+                        </div>
+                    </div>
+
+                    <div class="license-viewer-title">
+                        <span>Листайте документ внутри блока</span>
+                        <span>6 страниц</span>
+                    </div>
+                    <div class="license-pages" aria-label="Просмотр лицензии на проектную деятельность">
+                            <img src="assets/licenses/psd-01.jpg" alt="Лицензия ПСД, страница 1" loading="lazy">
+                            <img src="assets/licenses/psd-02.jpg" alt="Лицензия ПСД, страница 2" loading="lazy">
+                            <img src="assets/licenses/psd-03.jpg" alt="Лицензия ПСД, страница 3" loading="lazy">
+                            <img src="assets/licenses/psd-04.jpg" alt="Лицензия ПСД, страница 4" loading="lazy">
+                            <img src="assets/licenses/psd-05.jpg" alt="Лицензия ПСД, страница 5" loading="lazy">
+                            <img src="assets/licenses/psd-06.jpg" alt="Лицензия ПСД, страница 6" loading="lazy">
                     </div>
                 </div>
+
                 <div class="license-box">
-                    <div style="font-size: 40px; margin-bottom: 15px;">🏗️</div>
-                    <h3>Лицензия на СМР</h3>
-                    <p style="color: var(--text-muted); font-size: 14px;">На строительно-монтажные работы</p>
-                    <div class="license-placeholder">
-                        <span>[Загрузите скан Лицензии на СМР]</span>
+                    <div class="license-head">
+                        <div class="license-icon">🏗️</div>
+                        <div>
+                            <h3>Лицензия на строительно-монтажные работы</h3>
+                            <p>СМР, инженерные сети, дороги, монтаж конструкций и специализированные строительные работы.</p>
+                        </div>
+                    </div>
+
+                    <div class="license-facts">
+                        <div class="license-fact">
+                            <span>Номер</span>
+                            <strong>15010315</strong>
+                        </div>
+                        <div class="license-fact">
+                            <span>Дата выдачи</span>
+                            <strong>01.06.2015</strong>
+                        </div>
+                        <div class="license-fact">
+                            <span>Категория</span>
+                            <strong>I категория</strong>
+                        </div>
+                        <div class="license-fact">
+                            <span>Лицензиат</span>
+                            <strong>ПК «Стэка», БИН 941240000629</strong>
+                        </div>
+                    </div>
+
+                    <div class="license-viewer-title">
+                        <span>Листайте документ внутри блока</span>
+                        <span>5 страниц</span>
+                    </div>
+                    <div class="license-pages" aria-label="Просмотр лицензии на строительно-монтажные работы">
+                            <img src="assets/licenses/smr-01.jpg" alt="Лицензия СМР, страница 1" loading="lazy">
+                            <img src="assets/licenses/smr-02.jpg" alt="Лицензия СМР, страница 2" loading="lazy">
+                            <img src="assets/licenses/smr-03.jpg" alt="Лицензия СМР, страница 3" loading="lazy">
+                            <img src="assets/licenses/smr-04.jpg" alt="Лицензия СМР, страница 4" loading="lazy">
+                            <img src="assets/licenses/smr-05.jpg" alt="Лицензия СМР, страница 5" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="license-box">
+                    <div class="license-head">
+                        <div class="license-icon">📄</div>
+                        <div>
+                            <h3>Решение о регистрации устава кооператива</h3>
+                            <p>Архивный документ исполкома городского Совета народных депутатов г. Темиртау.</p>
+                        </div>
+                    </div>
+
+                    <div class="license-facts">
+                        <div class="license-fact">
+                            <span>Документ</span>
+                            <strong>Решение исполкома</strong>
+                        </div>
+                        <div class="license-fact">
+                            <span>Год</span>
+                            <strong>1991</strong>
+                        </div>
+                        <div class="license-fact">
+                            <span>Город</span>
+                            <strong>Темиртау</strong>
+                        </div>
+                        <div class="license-fact">
+                            <span>Формат</span>
+                            <strong>Архивный скан</strong>
+                        </div>
+                    </div>
+
+                    <div class="license-viewer-title">
+                        <span>Документ отображается прямо на сайте</span>
+                        <span>1 страница</span>
+                    </div>
+                    <div class="license-pages" aria-label="Просмотр решения о регистрации устава кооператива">
+                            <img src="assets/licenses/registration-1991.jpg" alt="Решение о регистрации устава кооператива, 1991 год" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -530,7 +726,7 @@
 
     <section id="portfolio">
         <div class="container">
-            <h2 class="section-title">Выполненные <span>объекты</span></h2>
+            <h2 class="section-title">Реализованные <span>проекты</span></h2>
             <p class="section-desc">Доказательство нашей квалификации и надежности — реальные, успешно сданные проекты с прохождением жесткого технадзора.</p>
 
             <div class="portfolio-grid">
@@ -662,7 +858,7 @@
         <div class="container">
             <div class="contact-box">
                 <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 20px;">Остались <span>вопросы</span>?</h2>
-                <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 16px;">Свяжитесь с инженерным отделом ПК «Стека» для консультации по проектно-сметной документации и деталям сотрудничества.</p>
+                <p style="color: var(--text-muted); margin-bottom: 30px; font-size: 16px;">Свяжитесь с инженерным отделом ПК «Стэка» для консультации по проектно-сметной документации и деталям сотрудничества.</p>
                 
                 <div style="display:flex; flex-direction:column; gap:20px; align-items:center; margin-bottom: 30px;">
                     <a href="https://wa.me/77021045190" style="background-color: #25D366; color: #fff; padding: 16px 30px; border-radius: 6px; font-size: 18px; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; width: 100%; justify-content: center; max-width: 350px;">
@@ -686,16 +882,18 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="logo" style="margin-bottom: 20px;">
-                        <div class="logo-title">ПК «Стека»<span>.</span></div>
+                        <div class="logo-title">ПК «Стэка»<span>.</span></div>
                     </div>
                     <p style="line-height: 1.6;">Профессиональный и надежный подход к промышленному, гражданскому строительству и высотному сервису на всей территории Республики Казахстан.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Навигация</h4>
                     <ul>
-                        <li><a href="#services">Наши направления</a></li>
-                        <li><a href="#documents">Лицензии и документы</a></li>
-                        <li><a href="#portfolio">Выполненные объекты</a></li>
+                        <li><a href="#about">О нас</a></li>
+                        <li><a href="#services">Услуги</a></li>
+                        <li><a href="#documents">Разрешительная документация</a></li>
+                        <li><a href="#portfolio">Реализованные проекты</a></li>
+                        <li><a href="#contact">Контакты</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -710,7 +908,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <div>&copy; 2026 ПК «Стека». Все права защищены.</div>
+                <div>&copy; 2026 ПК «Стэка». Все права защищены.</div>
                 <div>Генеральный подряд, СМР и проектная деятельность.</div>
             </div>
         </div>
